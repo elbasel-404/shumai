@@ -447,3 +447,30 @@ To train an AI model using a markdown file `data.md`, follow these steps:
    ```
 
 The script will read the data from `data.md`, train the model, and output the training progress and results.
+
+## Serving the Model in the Terminal
+
+To serve the model in the terminal and chat with your data, follow these steps:
+
+1. Create a new script `examples/chat_with_data.ts` with the following content:
+   ```typescript
+   import * as sm from '@shumai/shumai';
+
+   // Define a function to handle user input and model response
+   async function chatWithData() {
+     const model = sm.network.remote_model('http://localhost:3000');
+     const input = sm.tensor([1, 2, 3]); // Replace with your input data
+     const response = await model(input);
+     console.log('Model response:', response.toFloat32Array());
+   }
+
+   // Serve the model in the terminal
+   sm.network.serve_model(chatWithData);
+   ```
+
+2. Run the script with the following command:
+   ```
+   bun examples/chat_with_data.ts
+   ```
+
+The script will serve the model in the terminal, allowing you to chat with your data and get model responses.
