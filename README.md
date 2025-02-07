@@ -428,4 +428,22 @@ See the [CONTRIBUTING](CONTRIBUTING.md) file for style guidance and more info on
 shumai is MIT licensed, as found in the LICENSE file.
 
 
+## Training a Model with Markdown File
 
+To train an AI model using a markdown file `data.md`, follow these steps:
+
+1. Create a markdown file `data.md` with your training data. Each line should contain a pair of input and output values separated by a comma. For example:
+   ```
+   1,2
+   2,4
+   3,6
+   ```
+
+2. Use the provided script `examples/train_with_markdown.ts` to train the model. The script reads the markdown file, processes the data, and trains a model using the processed data.
+
+3. Run the script with the following command:
+   ```
+   bun examples/train_with_markdown.ts
+   ```
+
+The script will read the data from `data.md`, train the model, and output the training progress and results.
